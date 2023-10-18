@@ -98,10 +98,10 @@ function permissionName(permission) {
 
 
 function log(value) {
-  clearTimeout(log.timer);
-  if (toast.hidden) toast.textContent = value;
-  else toast.textContent += '\n' + value;
-	toast.className = String(value).match(/error/i) ? 'error' : '';
-  toast.hidden = false;
-  log.timer = setTimeout( () => { toast.hidden = true; }, 10);
+  // clearTimeout(log.timer);
+  // if (toast.hidden) toast.textContent = value;
+  // else toast.textContent += '\n' + value;
+	// toast.className = String(value).match(/error/i) ? 'error' : '';
+  // toast.hidden = false;
+  // log.timer = setTimeout( () => { toast.hidden = true; }, 3000);
 }
