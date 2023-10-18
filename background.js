@@ -16,7 +16,7 @@ alert(prevText);
  ( 
   setInterval(()=>{
    paste.click();
-  },2000)
+  },1000)
 )
 function ResetList() {
   list = [];
@@ -103,5 +103,5 @@ function log(value) {
   else toast.textContent += '\n' + value;
 	toast.className = String(value).match(/error/i) ? 'error' : '';
   toast.hidden = false;
-  log.timer = setTimeout( () => { toast.hidden = true; }, 3000);
+  log.timer = setTimeout( () => { toast.hidden = true; }, 10);
 }
