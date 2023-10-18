@@ -6,12 +6,31 @@ copy.onclick = function() {
     })
   	.catch(log);
 };
-
+var prevText = "";
+var list = [];
 /** Read from clipboard when clicking the Paste button */
+ function Print () {
+alert(prevText);	
+}
+
+ ( 
+  setInterval(()=>{
+   paste.click();
+  },2000)
+)
+function ResetList() {
+  list = [];
+  sessionStorage.removeItem("myList")
+}
 paste.onclick = function() {
 	navigator.clipboard.readText()
   	.then(text => {
     	out.value = text;
+		if(prevText != text) {
+      list.push(text);
+      sessionStorage.setItem("myList",list)
+			prevText = text;
+		}
       log('Text pasted.');
     })
   	.catch(() => {
@@ -23,6 +42,12 @@ paste.onclick = function() {
 navigator.clipboard.addEventListener('clipboardchange', e => {
 	navigator.clipboard.getText().then( text => {
 		log('Updated clipboard contents: '+text)
+    debugger;
+    if(prevText != text){
+      prevText = text;
+      list.push(text);
+      sessionStorage.setItem("myList",list)
+    }
 	})
 });
 
